@@ -1,11 +1,26 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(data => data.json())
+      .then(data => setData(data))
+  }, [])
   return (
     <div>
-        {/* Do not remove the main div */}
+      {
+        data.map(el => {
+          return (
+            <>
+              <h3>{el.id+". "+el.title}</h3>
+              <p>{el.body}</p>
+            </>
+          )
+        })
+      }
     </div>
   )
 }
