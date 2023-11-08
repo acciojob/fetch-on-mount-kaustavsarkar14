@@ -15,7 +15,7 @@ const App = () => {
         data.map(el => {
           return (
             <>
-              <h3>{el.id+". "+el.title}</h3>
+              <h2>{el.id+". "+el.title}</h2>
               <p>{el.body}</p>
             </>
           )
